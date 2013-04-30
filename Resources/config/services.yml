@@ -5,7 +5,4 @@ parameters:
 services:
     xsolve.cookie_bar.service:
         class: %xsolve.cookie_bar.service.class%
-        calls:
-            - [setContainer, [@service_container]]
-            - [setTemplate, [%xsolve.cookie_bar.template%]]
-
+        arguments:    ["@templating", %xsolve.cookie_bar.template%]

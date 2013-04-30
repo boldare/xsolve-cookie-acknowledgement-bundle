@@ -2,22 +2,28 @@
 
 namespace Xsolve\CookieBundle\Service;
 
-use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\DependencyInjection\ContainerAware;
+use Xsolve\CookieBundle\Service\CookieInterface;
 
-
-class CookieService extends ContainerAware
+class CookieService implements CookieInterface
 {
     protected $template;
+    
+    /**
+     *
+     * @var \Symfony\Bundle\TwigBundle\Debug\TimedTwigEngine
+     */
+    protected $templating;
+    
+    public function __construct($templating, $template)
+    {
+        $this->templating = $templating;
+        $this->template   = $template;
+    }
 
     public function render(array $data = array())
     {
-        $templating = $this->container->get('templating');
-        return $templating->render($this->template, $data);
+        return $this->templating->render($this->template, $data);
     }
 
-    public function setTemplate($template)
-    {
-        $this->template = $template;
-    }
 }
