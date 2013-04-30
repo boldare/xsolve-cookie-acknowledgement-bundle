@@ -1,9 +1,9 @@
 {
     "name": "xsolve-pl/xsolve-cookie-bundle",
+    "description": "XSolve Cookie bundle to handle new privacy law",
+    "license": "MIT",
     "autoload": {
-        "psr-0": {
-            "Xsolve\\CookieBundle": ""
-        }
+        "psr-0": { "Xsolve\\CookieBundle": "" }
     },
     "target-dir" : "Xsolve/CookieBundle"
 }
