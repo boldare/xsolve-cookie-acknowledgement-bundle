@@ -1,0 +1,9 @@
+{
+    "name": "xsolve-pl/xsolve-cookie-bundle",
+    "autoload": {
+        "psr-0": {
+            "Xsolve\\CookieBundle": ""
+        }
+    },
+    "target-dir" : "Xsolve/CookieBundle"
+}
