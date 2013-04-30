@@ -1,0 +1,11 @@
+parameters:
+    xsolve.cookie_bar.service.class: Xsolve\CookieBundle\Service\CookieService
+    xsolve.cookie_bar.event_listener.class: Xsolve\CookieBundle\EventListener\CookieBarListener
+
+services:
+    xsolve.cookie_bar.service:
+        class: %xsolve.cookie_bar.service.class%
+        calls:
+            - [setContainer, [@service_container]]
+            - [setTemplate, [%xsolve.cookie_bar.template%]]
+
