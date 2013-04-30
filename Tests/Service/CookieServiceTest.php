@@ -2,7 +2,6 @@
 
 namespace Xsolve\CoookieBundle\Tests\Service;
 
-use Xsolve\CoookieBundle\Tests\BaseTestCase;
 use Xsolve\CoookieBundle\Service\CookieService;
 
 class CookieServiceTest extends \PHPUnit_Framework_TestCase
