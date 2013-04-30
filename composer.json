@@ -5,5 +5,10 @@
     "autoload": {
         "psr-0": { "Xsolve\\CookieBundle": "" }
     },
-    "target-dir" : "Xsolve/CookieBundle"
+    "target-dir" : "Xsolve/CookieBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "*"
+        }
+    }
 }

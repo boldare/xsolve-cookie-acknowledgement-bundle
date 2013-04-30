@@ -14,6 +14,8 @@ class CookieBarListener implements EventSubscriberInterface
 {
     protected $cookieService;
 
+    protected static $listenerKernelPriority = -128;
+    
     public function __construct(CookieService $cookieService)
     {
         $this->cookieService = $cookieService;
@@ -56,7 +58,7 @@ class CookieBarListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            KernelEvents::RESPONSE => array('onKernelResponse', -128),
+            KernelEvents::RESPONSE => array('onKernelResponse', self::listenerKernelPriority),
         );
     }
 }
