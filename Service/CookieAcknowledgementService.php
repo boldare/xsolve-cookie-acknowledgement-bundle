@@ -3,9 +3,9 @@
 namespace Xsolve\CookieAcknowledgementBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
-use Xsolve\CookieBundle\Service\CookieInterface;
+use Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementInterface;
 
-class CookieAcknowledgementBundleService implements CookieAcknowledgementBundleInterface
+class CookieAcknowledgementService implements CookieAcknowledgementInterface
 {
     protected $template;
 

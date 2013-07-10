@@ -33,7 +33,7 @@ class Configuration implements ConfigurationInterface
                 ->end()
 
                 ->scalarNode('template')
-                ->defaultValue('XsolveCookieAcknowledgementBundle::cookie_bar.html.twig')
+                ->defaultValue('XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig')
                 ->end()
             ->end();
 

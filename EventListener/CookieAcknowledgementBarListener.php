@@ -8,15 +8,15 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-use Xsolve\CookieBundle\Service\CookieService;
+use Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementService;
 
-class CookieBarListener implements EventSubscriberInterface
+class CookieAcknowledgementBarListener implements EventSubscriberInterface
 {
     protected $cookieService;
 
     protected static $listenerKernelPriority = -128;
 
-    public function __construct(CookieService $cookieService)
+    public function __construct(CookieAcknowledgementService $cookieService)
     {
         $this->cookieService = $cookieService;
     }
@@ -31,11 +31,11 @@ class CookieBarListener implements EventSubscriberInterface
         $request = $event->getRequest();
 
         if (!$request->cookies->has('cookie_law_accepted')) {
-            $this->injectCookieBarWithCssClass($response);
+            $this->injectCookieBar($response);
         }
     }
 
-    public function injectCookieBarWithCssClass(Response $response, $cssClass)
+    public function injectCookieBar(Response $response)
     {
         if (function_exists('mb_stripos')) {
             $posrFunction   = 'mb_strripos';

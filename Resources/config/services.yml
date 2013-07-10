@@ -1,8 +1,8 @@
 parameters:
-    xsolve.cookie_bar.service.class: Xsolve\CookieAcknowledgementBundle\Service\CookieService
-    xsolve.cookie_bar.event_listener.class: Xsolve\CookieAcknowledgementBundle\EventListener\CookieBarListener
+    xsolve.cookie_acknowledgement_bar.service.class: Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementService
+    xsolve.cookie_acknowledgement_bar.event_listener.class: Xsolve\CookieAcknowledgementBundle\EventListener\CookieAcknowledgementBarListener
 
 services:
-    xsolve.cookie_bar.service:
-        class: %xsolve.cookie_bar.service.class%
-        arguments:    ["@templating", %xsolve.cookie_bar.template%]
+    xsolve.cookie_acknowledgement_bar.service:
+        class: %xsolve.cookie_acknowledgement_bar.service.class%
+        arguments:    ["@templating", %xsolve.cookie_acknowledgement_bar.template%]

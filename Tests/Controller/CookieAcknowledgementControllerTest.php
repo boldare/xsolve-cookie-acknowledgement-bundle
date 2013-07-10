@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\CookieBundle\Tests\Controller;
+namespace Xsolve\CookieAcknowledgementBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
@@ -22,7 +22,6 @@ class CookieAcknowledgementControllerTest extends WebTestCase
         //check if cookie bar appear
         $crawler = $client->request('GET', '/');
         $this->assertTrue($crawler->filter('#cookie-law-info-bar')->count() > 0);
-        $this->assertTrue(in_array($crawler->filter('#cookie-law-info-bar')->attr('class'), array('cookie-law-info-bar')));
 
         //set cookies in cookiejar
         $client->getCookieJar()->set(new Cookie('cookie.message.accept', 'fr', time() + 3600 * 24 * 7, '/', null, false, false));

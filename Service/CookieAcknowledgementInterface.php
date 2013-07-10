@@ -3,7 +3,7 @@
 namespace Xsolve\CookieAcknowledgementBundle\Service;
 
 
-interface CookieAcknowledgementBundleInterface
+interface CookieAcknowledgementInterface
 {
     /**
      *
