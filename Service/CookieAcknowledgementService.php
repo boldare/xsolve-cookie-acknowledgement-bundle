@@ -2,7 +2,6 @@
 
 namespace Xsolve\CookieAcknowledgementBundle\Service;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
 use Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementInterface;
 
 class CookieAcknowledgementService implements CookieAcknowledgementInterface

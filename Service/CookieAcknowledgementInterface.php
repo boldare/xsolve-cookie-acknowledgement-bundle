@@ -2,7 +2,6 @@
 
 namespace Xsolve\CookieAcknowledgementBundle\Service;
 
-
 interface CookieAcknowledgementInterface
 {
     /**

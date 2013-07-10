@@ -2,8 +2,6 @@
 
 namespace Xsolve\CoookieAcknowledgementBundle\Tests\Service;
 
-use Xsolve\CoookieAcknowledgementBundle\Service\CookieAcknowledgementService;
-
 class CookieServiceTest extends \PHPUnit_Framework_TestCase
 {
     protected $cookieService;
