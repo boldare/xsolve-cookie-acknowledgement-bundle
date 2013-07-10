@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\CookieBundle\DependencyInjection;
+namespace Xsolve\CookieAcknowledgementBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('xsolve_cookie');
+        $rootNode = $treeBuilder->root('xsolve_cookie_acknowledgement');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
@@ -32,8 +32,12 @@ class Configuration implements ConfigurationInterface
                 ->defaultValue(false)
                 ->end()
 
+                ->scalarNode('cookie_expiry_time')
+                ->defaultValue(60)
+                ->end()
+
                 ->scalarNode('template')
-                ->defaultValue('XsolveCookieBundle::cookie_bar.html.twig')
+                ->defaultValue('XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig')
                 ->end()
             ->end();
 
