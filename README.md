@@ -7,20 +7,20 @@ Add to composer.json :
 
     {
         "require": {
-            "xsolve-pl/xsolve-cookie-bundle": "dev-master"
+            "xsolve-pl/xsolve-cookie-acknowledgement-bundle": "dev-master"
         },
         "repositories": [
             {
                 "type": "package",
                 "package": {
-                    "name": "xsolve-pl/xsolve-cookie-bundle",
+                    "name": "xsolve-pl/xsolve-cookie-acknowledgement-bundle",
                     "version": "dev-master",
                     "source": {
-                        "url": "git@github.com:xsolve-pl/xsolve-cookie-bundle.git",
+                        "url": "git@github.com:xsolve-pl/xsolve-cookie-acknowledgement-bundle.git",
                         "type": "git",
                         "reference": "master"
                     },
-                    "target-dir" : "Xsolve/CookieBundle"
+                    "target-dir" : "Xsolve/CookieAcknowledgementBundle"
                 }
             }
         ]
@@ -28,15 +28,20 @@ Add to composer.json :
 
 use:
 
-    composer isntall 
+    composer isntall
 
 or
 
-    composer update xsolve-pl/xsolve-cookie-bundle
+    composer update xsolve-pl/xsolve-cookie-acknowledgement-bundle
 
 Additionally add to app/AppKernel.php:
-
-    new Xsolve\CookieBundle\XsolveCookieBundle();
+    public function registerBundles()
+    {
+        return array(
+            // ...
+            new Xsolve\CookieAcknowledgementBundle\XsolveCookieAcknowledgementBundle(),
+        );
+    }
 
 2) Using
 ----------------------------------
@@ -45,16 +50,16 @@ Additionally add to app/AppKernel.php:
 
 You can add to app/config/config.yml file new bundle configuration:
 
-    xsolve_cookie:
+    xsolve_cookie_acknowledgement:
         response_injection: true
-    
-Cookies message should be presented on all pages. 
+
+Cookies message should be presented on all pages.
 
 ### For iframes
 
-You can add to your twig template include line. 
+You can add to your twig template include line.
 
-    {% include 'XsolveCookieBundle::cookie_bar.html.twig' %}
+    {% include 'XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig' %}
 
 Cookies message should be presented only on selected pages.
 

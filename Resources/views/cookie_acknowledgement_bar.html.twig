@@ -1,8 +1,8 @@
 {% block xsolve_cookie_message %}
     <div id="cookie-law-info-bar">
         <p>
-            {{ 'cookie-message'|trans({}, 'cookie') }}
-            <a href="#" id="cookie-law-close-button">{{ 'cookie-message-accept'|trans({}, '') }}</a>
+            {{ 'cookie.message'|trans({}, 'cookie') }}
+            <a href="#" id="cookie-law-close-button">{{ 'cookie.message.accept'|trans({}, '') }}</a>
         </p>
     </div>
     {% block xsolve_cookie_message_js %}
@@ -15,7 +15,9 @@
             }
 
             function setCookieAccepted() {
-                document.cookie = "cookie_law_accepted=1";
+                expiry = new Date();
+                expiry.setTime(date.getTime()+({{ cookieExpiryTime }} * 60 * 1000));
+                document.cookie = "cookie_law_accepted=1; expires=" + expiry.toGMTString();
             }
 
             function isCookieAccepted () {

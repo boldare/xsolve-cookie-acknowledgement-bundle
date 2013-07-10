@@ -13,12 +13,14 @@ use Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementService;
 class CookieAcknowledgementBarListener implements EventSubscriberInterface
 {
     protected $cookieService;
+    protected $cookieExpiryTime = 10;
 
     protected static $listenerKernelPriority = -128;
 
-    public function __construct(CookieAcknowledgementService $cookieService)
+    public function __construct(CookieAcknowledgementService $cookieService, $cookieExpiryTime)
     {
         $this->cookieService = $cookieService;
+        $this->cookieExpiryTime = $cookieExpiryTime;
     }
 
     public function onKernelResponse(FilterResponseEvent $event)
@@ -37,19 +39,14 @@ class CookieAcknowledgementBarListener implements EventSubscriberInterface
 
     public function injectCookieBar(Response $response)
     {
-        if (function_exists('mb_stripos')) {
-            $posrFunction   = 'mb_strripos';
-            $substrFunction = 'mb_substr';
-        } else {
-            $posrFunction   = 'strripos';
-            $substrFunction = 'substr';
-        }
+        $posrFunction   = 'mb_strripos';
+        $substrFunction = 'mb_substr';
 
         $content = $response->getContent();
         $pos = $posrFunction($content, '</body>');
 
         if (false !== $pos) {
-            $toolbar = "\n".$this->cookieService->render()."\n";
+            $toolbar = "\n".$this->cookieService->render(array('cookieExpiryTime' => $this->cookieExpiryTime))."\n";
             $content = $substrFunction($content, 0, $pos).$toolbar.$substrFunction($content, $pos);
             $response->setContent($content);
         }

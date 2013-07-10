@@ -38,6 +38,7 @@ class XsolveCookieAcknowledgementExtension extends Extension
         $definition = new Definition();
         $definition->setClass($container->getParameter('xsolve.cookie_acknowledgement_bar.event_listener.class'));
         $definition->addArgument(new Reference('xsolve.cookie_acknowledgement_bar.service'));
+        $definition->addArgument($container->getParameter('cookie.expiry.time'));
 
         $definition->addTag('kernel.event_listener', array(
             'event' => 'kernel.response',
