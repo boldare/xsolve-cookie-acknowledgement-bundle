@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\CookieBundle\DependencyInjection;
+namespace Xsolve\CookieAcknowledgementBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Reference;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class XsolveCookieExtension extends Extension
+class XsolveCookieAcknowledgementBundleExtension extends Extension
 {
     /**
      * {@inheritDoc}

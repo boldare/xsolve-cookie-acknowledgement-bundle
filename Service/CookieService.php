@@ -1,20 +1,20 @@
 <?php
 
-namespace Xsolve\CookieBundle\Service;
+namespace Xsolve\CookieAcknowledgementBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Xsolve\CookieBundle\Service\CookieInterface;
 
-class CookieService implements CookieInterface
+class CookieAcknowledgementBundleService implements CookieAcknowledgementBundleInterface
 {
     protected $template;
-    
+
     /**
      *
      * @var \Symfony\Bundle\TwigBundle\Debug\TimedTwigEngine
      */
     protected $templating;
-    
+
     public function __construct($templating, $template)
     {
         $this->templating = $templating;

@@ -1,6 +1,6 @@
 parameters:
-    xsolve.cookie_bar.service.class: Xsolve\CookieBundle\Service\CookieService
-    xsolve.cookie_bar.event_listener.class: Xsolve\CookieBundle\EventListener\CookieBarListener
+    xsolve.cookie_bar.service.class: Xsolve\CookieAcknowledgementBundle\Service\CookieService
+    xsolve.cookie_bar.event_listener.class: Xsolve\CookieAcknowledgementBundle\EventListener\CookieBarListener
 
 services:
     xsolve.cookie_bar.service:

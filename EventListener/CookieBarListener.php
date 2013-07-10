@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\CookieBundle\EventListener;
+namespace Xsolve\CookieAcknowledgementBundle\EventListener;
 
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
@@ -15,7 +15,7 @@ class CookieBarListener implements EventSubscriberInterface
     protected $cookieService;
 
     protected static $listenerKernelPriority = -128;
-    
+
     public function __construct(CookieService $cookieService)
     {
         $this->cookieService = $cookieService;
@@ -30,12 +30,12 @@ class CookieBarListener implements EventSubscriberInterface
         $response = $event->getResponse();
         $request = $event->getRequest();
 
-        if (!$request->cookies->has('cookie_law_confirmed')) {
-            $this->injectCookieBar($response);
+        if (!$request->cookies->has('cookie_law_accepted')) {
+            $this->injectCookieBarWithCssClass($response);
         }
     }
 
-    public function injectCookieBar(Response $response)
+    public function injectCookieBarWithCssClass(Response $response, $cssClass)
     {
         if (function_exists('mb_stripos')) {
             $posrFunction   = 'mb_strripos';
