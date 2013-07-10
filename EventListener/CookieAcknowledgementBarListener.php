@@ -39,15 +39,12 @@ class CookieAcknowledgementBarListener implements EventSubscriberInterface
 
     public function injectCookieBar(Response $response)
     {
-        $posrFunction   = 'mb_strripos';
-        $substrFunction = 'mb_substr';
-
         $content = $response->getContent();
-        $pos = $posrFunction($content, '</body>');
+        $pos = mb_strripos($content, '</body>');
 
         if (false !== $pos) {
             $toolbar = "\n".$this->cookieService->render(array('cookieExpiryTime' => $this->cookieExpiryTime))."\n";
-            $content = $substrFunction($content, 0, $pos).$toolbar.$substrFunction($content, $pos);
+            $content = mb_substr($content, 0, $pos).$toolbar.mb_substr($content, $pos);
             $response->setContent($content);
         }
     }

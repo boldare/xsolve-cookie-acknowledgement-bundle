@@ -27,18 +27,18 @@ class XsolveCookieAcknowledgementExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        if ($config['response_injection']) {
-            $this->registerResponseListener($container);
+        if ($config['response_injection'] && $config['cookie_expiry_time']) {
+            $this->registerResponseListener($container, $config['cookie_expiry_time']);
         }
         $container->setParameter('xsolve.cookie_acknowledgement_bar.template', $config['template']);
     }
 
-    protected function registerResponseListener(ContainerBuilder $container)
+    protected function registerResponseListener(ContainerBuilder $container, $cookieExpiryTime)
     {
         $definition = new Definition();
         $definition->setClass($container->getParameter('xsolve.cookie_acknowledgement_bar.event_listener.class'));
         $definition->addArgument(new Reference('xsolve.cookie_acknowledgement_bar.service'));
-        $definition->addArgument($container->getParameter('cookie.expiry.time'));
+        $definition->addArgument($cookieExpiryTime);
 
         $definition->addTag('kernel.event_listener', array(
             'event' => 'kernel.response',

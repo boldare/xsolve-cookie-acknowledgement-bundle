@@ -28,7 +28,7 @@ Add to composer.json :
 
 use:
 
-    composer isntall
+    composer install
 
 or
 
@@ -53,6 +53,7 @@ You can add to app/config/config.yml file new bundle configuration:
 
     xsolve_cookie_acknowledgement:
         response_injection: true
+        cookie_expiry_time: 60 (60 is  default value if key is not defined)
 
 Cookies message should be presented on all pages.
 

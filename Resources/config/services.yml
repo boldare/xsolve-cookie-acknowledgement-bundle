@@ -1,7 +1,6 @@
 parameters:
     xsolve.cookie_acknowledgement_bar.service.class: Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementService
     xsolve.cookie_acknowledgement_bar.event_listener.class: Xsolve\CookieAcknowledgementBundle\EventListener\CookieAcknowledgementBarListener
-    cookie.expiry.time: 60
 
 services:
     xsolve.cookie_acknowledgement_bar.service:

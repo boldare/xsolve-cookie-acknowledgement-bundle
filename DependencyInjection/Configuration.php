@@ -31,6 +31,10 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('response_injection')
                 ->defaultValue(false)
                 ->end()
+                
+                ->scalarNode('cookie_expiry_time')
+                ->defaultValue(60)
+                ->end()
 
                 ->scalarNode('template')
                 ->defaultValue('XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig')

@@ -16,7 +16,7 @@
 
             function setCookieAccepted() {
                 expiry = new Date();
-                expiry.setTime(date.getTime()+({{ cookieExpiryTime }} * 60 * 1000));
+                expiry.setTime(expiry.getTime()+({{ cookieExpiryTime }} * 60 * 1000));
                 document.cookie = "cookie_law_accepted=1; expires=" + expiry.toGMTString();
             }
 
