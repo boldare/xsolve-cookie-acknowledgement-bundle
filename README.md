@@ -35,6 +35,7 @@ or
     composer update xsolve-pl/xsolve-cookie-acknowledgement-bundle
 
 Additionally add to app/AppKernel.php:
+
     public function registerBundles()
     {
         return array(
