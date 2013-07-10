@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\CookieBundle\DependencyInjection;
+namespace Xsolve\CookieAcknowledgementBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Reference;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class XsolveCookieExtension extends Extension
+class XsolveCookieAcknowledgementExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -27,23 +27,24 @@ class XsolveCookieExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        if ($config['response_injection']) {
-            $this->registerResponseListener($container);
+        if ($config['response_injection'] && $config['cookie_expiry_time']) {
+            $this->registerResponseListener($container, $config['cookie_expiry_time']);
         }
-        $container->setParameter('xsolve.cookie_bar.template', $config['template']);
+        $container->setParameter('xsolve.cookie_acknowledgement_bar.template', $config['template']);
     }
 
-    protected function registerResponseListener(ContainerBuilder $container)
+    protected function registerResponseListener(ContainerBuilder $container, $cookieExpiryTime)
     {
         $definition = new Definition();
-        $definition->setClass($container->getParameter('xsolve.cookie_bar.event_listener.class'));
-        $definition->addArgument(new Reference('xsolve.cookie_bar.service'));
+        $definition->setClass($container->getParameter('xsolve.cookie_acknowledgement_bar.event_listener.class'));
+        $definition->addArgument(new Reference('xsolve.cookie_acknowledgement_bar.service'));
+        $definition->addArgument($cookieExpiryTime);
 
         $definition->addTag('kernel.event_listener', array(
             'event' => 'kernel.response',
             'method' => 'onKernelResponse'
         ));
 
-        $container->setDefinition('xsolve.cookie_bar.event_listener', $definition);
+        $container->setDefinition('xsolve.cookie_acknowledgement_bar.event_listener', $definition);
     }
 }

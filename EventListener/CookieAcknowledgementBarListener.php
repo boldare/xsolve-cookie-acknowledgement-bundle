@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\CookieBundle\EventListener;
+namespace Xsolve\CookieAcknowledgementBundle\EventListener;
 
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
@@ -8,17 +8,19 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-use Xsolve\CookieBundle\Service\CookieService;
+use Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementService;
 
-class CookieBarListener implements EventSubscriberInterface
+class CookieAcknowledgementBarListener implements EventSubscriberInterface
 {
     protected $cookieService;
+    protected $cookieExpiryTime = 10;
 
     protected static $listenerKernelPriority = -128;
-    
-    public function __construct(CookieService $cookieService)
+
+    public function __construct(CookieAcknowledgementService $cookieService, $cookieExpiryTime)
     {
         $this->cookieService = $cookieService;
+        $this->cookieExpiryTime = $cookieExpiryTime;
     }
 
     public function onKernelResponse(FilterResponseEvent $event)
@@ -30,27 +32,19 @@ class CookieBarListener implements EventSubscriberInterface
         $response = $event->getResponse();
         $request = $event->getRequest();
 
-        if (!$request->cookies->has('cookie_law_confirmed')) {
+        if (!$request->cookies->has('cookie_law_accepted')) {
             $this->injectCookieBar($response);
         }
     }
 
     public function injectCookieBar(Response $response)
     {
-        if (function_exists('mb_stripos')) {
-            $posrFunction   = 'mb_strripos';
-            $substrFunction = 'mb_substr';
-        } else {
-            $posrFunction   = 'strripos';
-            $substrFunction = 'substr';
-        }
-
         $content = $response->getContent();
-        $pos = $posrFunction($content, '</body>');
+        $pos = mb_strripos($content, '</body>');
 
         if (false !== $pos) {
-            $toolbar = "\n".$this->cookieService->render()."\n";
-            $content = $substrFunction($content, 0, $pos).$toolbar.$substrFunction($content, $pos);
+            $toolbar = "\n".$this->cookieService->render(array('cookieExpiryTime' => $this->cookieExpiryTime))."\n";
+            $content = mb_substr($content, 0, $pos).$toolbar.mb_substr($content, $pos);
             $response->setContent($content);
         }
     }
