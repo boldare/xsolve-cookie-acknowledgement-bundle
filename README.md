@@ -2,10 +2,10 @@
 
 This bundle provides information about an cookies usage, which is forced by European Union by so-called [EU cookie law](http://www.ico.org.uk/for_organisations/privacy_and_electronic_communications/the_guide/cookies).
 
-This bundle provides fexible way of dealing with informing your visitors about cookies. It includes:
+This bundle provides flexible way of dealing with informing your visitors about cookies. It includes:
 
-* extremally easy to install and use
-* automatically injecting cookie bar into the bottom of the page
+* fast & easy integration and short learning curve
+* automatic cookie bar injection on the bottom of the page
 * ability to manually inject cookie bar (for example for iframes)
 * ability to change text and "close button" name
 * locale aware
@@ -53,12 +53,12 @@ By default the cookie bar will be visible on every page after turning on bundle.
 
 ## For iframes
 
-Disable response injection in  app/config/config.yml
+Disable response injection in app/config/config.yml
 
     xsolve_cookie_acknowledgement:
         response_injection: false
 
-Include cookie bar in aproperiate place
+Include cookie bar in appropriate location
 
     {% include 'XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig' %}
 
