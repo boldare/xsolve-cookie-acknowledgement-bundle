@@ -2,7 +2,7 @@
 
 This bundle provides information about an cookies usage, which is forced by European Union by so-called [EU cookie law](http://www.ico.org.uk/for_organisations/privacy_and_electronic_communications/the_guide/cookies).
 
-This bundle provides flexible way of dealing with informing your visitors about cookies. It includes:
+It includes:
 
 * fast & easy integration and short learning curve
 * automatic cookie bar injection on the bottom of the page
