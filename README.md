@@ -13,6 +13,8 @@ This bundle provides fexible way of dealing with informing your visitors about c
 
 This bundle requires Multibyte String extension.
 
+![Example usage](https://raw.github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle/master/Resources/doc/xsolve-cookie-acknowledgement-bundle-example.png)
+
 # Installation
 
 1) Add to composer.json
@@ -47,21 +49,18 @@ This bundle requires Multibyte String extension.
 
 ## For all static pages
 
-You can add to app/config/config.yml file new bundle configuration:
-
-    xsolve_cookie_acknowledgement:
-        response_injection: true
-        cookie_expiry_time: 60 # (60 is  default value if key is not defined)
-
-Cookies message should be presented on all pages.
+By default the cookie bar will be visible on every page after turning on bundle.
 
 ## For iframes
 
-You can add to your twig template include line.
+Disable response injection in  app/config/config.yml
+
+    xsolve_cookie_acknowledgement:
+        response_injection: false
+
+Include cookie bar in aproperiate place
 
     {% include 'XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig' %}
-
-Cookies message should be presented only on selected pages.
 
 ## Configuration options
 
