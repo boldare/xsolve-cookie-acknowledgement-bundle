@@ -122,3 +122,16 @@ Also base template can be reused be Twig extension (two blocks are used: xsolve_
             }
         </script>
     {% endblock %}
+
+# Automated testing
+
+There are fe simple test to make sure that everything works fine. To run tests include this bundle
+into some Symfony2 project (Symfony Standard Edition is enough). Then put testsuite in app/phpunit.xml
+
+    <testsuite name="XSolve Cookie Acknowledgement Bundle Suite">
+        <directory>../vendor/xsolve-pl/xsolve-cookie-acknowledgement-bundle/Xsolve/CookieAcknowledgementBundle/Tests/</directory>
+    </testsuite>
+
+And run
+
+    phpunit -c app/
