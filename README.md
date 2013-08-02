@@ -19,17 +19,9 @@ This bundle requires Multibyte String extension.
 
 1) Add to composer.json
 
-    {
-        "require": {
-            "xsolve-pl/xsolve-cookie-acknowledgement-bundle": "dev-master"
-        },
-        "repositories": [
-            { 
-                "type": "vcs",
-                "url": "git@github.com:xsolve-pl/xsolve-cookie-acknowledgement-bundle.git"
-            }
-        ]
-    }
+    "require": {
+        "xsolve-pl/xsolve-cookie-acknowledgement-bundle": "1.0.*"
+    },
 
 2) Install dependencies
 
