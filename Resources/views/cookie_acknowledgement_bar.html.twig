@@ -1,38 +1,32 @@
 {% block xsolve_cookie_message %}
-    <div id="cookie-law-info-bar">
-        <p>
-            {{ 'cookie.message'|trans({}, 'cookie') }}
-            <a href="#" id="cookie-law-close-button">{{ 'cookie.message.accept'|trans({}, '') }}</a>
+    <div id="cookie-law-info-bar" style="width:100%; background: rgba(51, 221, 227, 0.75); position: fixed; bottom: 40px; left: 0;">
+        <p style="text-align:center; padding: 10px;">
+            {{ 'cookie.message'|trans({}, 'XsolveCookieAcknowledgementBundle') }}
+            <a href="#" id="cookie-law-close-button">{{ 'cookie.message.accept'|trans({}, 'XsolveCookieAcknowledgementBundle') }}</a>
         </p>
     </div>
-    {% block xsolve_cookie_message_js %}
-        <script type="text/javascript">
-            var cookieBar = document.getElementById('cookie-law-info-bar'),
-                button = document.getElementById('cookie-law-close-button');
+{% endblock %}
 
-            function hideCookieBar() {
-                cookieBar.style.display = 'none';
-            }
+{% block xsolve_cookie_message_js %}
+    <script type="text/javascript">
+        var cookieBar = document.getElementById('cookie-law-info-bar'),
+            button = document.getElementById('cookie-law-close-button');
 
-            function setCookieAccepted() {
-                expiry = new Date();
-                expiry.setTime(expiry.getTime()+({{ cookieExpiryTime }} * 60 * 1000));
-                document.cookie = "cookie_law_accepted=1; expires=" + expiry.toGMTString();
-            }
+        function hideCookieBar() {
+            cookieBar.style.display = 'none';
+        }
 
-            function isCookieAccepted () {
-                var accepted = document.cookie.replace(/(?:(?:^|.*;\s*)cookie_law_accepted\s*\=\s*((?:[^;](?!;))*[^;]?).*)|.*/, "$1");
-                return accepted === '1';
-            }
+        function setCookieAccepted() {
+            expiry = new Date();
+            expiry.setTime(expiry.getTime()+({{ cookieExpiryTime }} * 1000 * 60 * 60 * 24));
+            document.cookie = "cookie_law_accepted=1; expires=" + expiry.toGMTString();
+        }
 
-            if (!isCookieAccepted()) {
-                button.onclick = function() {
-                    hideCookieBar();
-                    setCookieAccepted();
-                }
-            } else {
-                hideCookieBar();
-            }
-        </script>
-    {% endblock %}
+        button.onclick = function() {
+            hideCookieBar();
+            setCookieAccepted();
+
+            return false;
+        }
+    </script>
 {% endblock %}
