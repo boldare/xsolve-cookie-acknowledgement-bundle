@@ -13,7 +13,7 @@ This bundle provides fexible way of dealing with informing your visitors about c
 
 This bundle requires Multibyte String extension.
 
-![Example usage](https://raw.github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle/master/Resources/doc/xsolve-cookie-acknowledgement-bundle-example.png)
+![Example usage](Resources/doc/xsolve-cookie-acknowledgement-bundle-example.png)
 
 # Installation
 
