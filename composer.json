@@ -5,5 +5,5 @@
     "autoload": {
         "psr-0": { "Xsolve\\CookieAcknowledgementBundle": "" }
     },
-    "target-dir" : "Xsolve/CookieAcknowledgementBundle",
+    "target-dir" : "Xsolve/CookieAcknowledgementBundle"
 }
