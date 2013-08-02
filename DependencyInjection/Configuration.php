@@ -29,11 +29,11 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('response_injection')
-                ->defaultValue(false)
+                ->defaultValue(true)
                 ->end()
 
                 ->scalarNode('cookie_expiry_time')
-                ->defaultValue(60)
+                ->defaultValue(365 * 10)
                 ->end()
 
                 ->scalarNode('template')
