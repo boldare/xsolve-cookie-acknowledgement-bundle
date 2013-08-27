@@ -1,5 +1,7 @@
 # About
 
+[![knpbundles.com](http://knpbundles.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle/badge-short)](http://knpbundles.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle)
+
 This bundle provides information about an cookies usage, which is forced by European Union by so-called [EU cookie law](http://www.ico.org.uk/for_organisations/privacy_and_electronic_communications/the_guide/cookies).
 
 It includes:
@@ -13,7 +15,7 @@ It includes:
 
 This bundle requires Multibyte String extension.
 
-![Example usage](Resources/doc/xsolve-cookie-acknowledgement-bundle-example.png)
+![Example usage](https://raw.github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle/master/Resources/doc/xsolve-cookie-acknowledgement-bundle-example.png)
 
 # Installation
 
