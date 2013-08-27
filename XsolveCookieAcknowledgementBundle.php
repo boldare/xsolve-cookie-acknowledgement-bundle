@@ -2,8 +2,8 @@
 
 namespace Xsolve\CookieAcknowledgementBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Exception;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class XsolveCookieAcknowledgementBundle extends Bundle
 {
