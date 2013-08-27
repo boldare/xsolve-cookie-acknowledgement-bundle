@@ -2,11 +2,11 @@
 
 namespace Xsolve\CookieAcknowledgementBundle\EventListener;
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\Response;
 
 use Xsolve\CookieAcknowledgementBundle\Service\CookieAcknowledgementService;
 
@@ -19,7 +19,7 @@ class CookieAcknowledgementBarListener implements EventSubscriberInterface
 
     public function __construct(CookieAcknowledgementService $cookieService, $cookieExpiryTime)
     {
-        $this->cookieService = $cookieService;
+        $this->cookieService    = $cookieService;
         $this->cookieExpiryTime = $cookieExpiryTime;
     }
 
@@ -30,7 +30,7 @@ class CookieAcknowledgementBarListener implements EventSubscriberInterface
         }
 
         $response = $event->getResponse();
-        $request = $event->getRequest();
+        $request  = $event->getRequest();
 
         if (!$request->cookies->has('cookie_law_accepted')) {
             $this->injectCookieBar($response);
@@ -40,7 +40,7 @@ class CookieAcknowledgementBarListener implements EventSubscriberInterface
     protected function injectCookieBar(Response $response)
     {
         $content = $response->getContent();
-        $pos = mb_strripos($content, '</body>');
+        $pos     = mb_strripos($content, '</body>');
 
         if (false !== $pos) {
             $toolbar = sprintf("\n%s\n", $this->cookieService->render(array('cookieExpiryTime' => $this->cookieExpiryTime)));
