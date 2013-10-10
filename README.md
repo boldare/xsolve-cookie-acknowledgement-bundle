@@ -2,6 +2,8 @@
 
 [![knpbundles.com](http://knpbundles.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle/badge)](http://knpbundles.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle)
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b87709eb-abae-4825-81a5-88068438e45d/big.png)](https://insight.sensiolabs.com/projects/b87709eb-abae-4825-81a5-88068438e45d)
+
 This bundle provides information about an cookies usage, which is forced by European Union by so-called [EU cookie law](http://www.ico.org.uk/for_organisations/privacy_and_electronic_communications/the_guide/cookies).
 
 It includes:
