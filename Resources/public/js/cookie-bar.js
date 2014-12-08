@@ -14,7 +14,7 @@
         },
 
         shouldShowCookieBar: function () {
-            return window.sessionStorage.getItem(this.itemName) !== this.itemValue;
+            return window.localStorage.getItem(this.itemName) !== this.itemValue;
         },
 
         processCookieBar: function () {
@@ -24,7 +24,7 @@
         },
 
         processCookieAccept: function () {
-            window.sessionStorage.setItem(this.itemName, this.itemValue);
+            window.localStorage.setItem(this.itemName, this.itemValue);
             this.hideCookieBar();
         },
 
