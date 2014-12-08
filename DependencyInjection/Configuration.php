@@ -29,10 +29,6 @@ class Configuration implements ConfigurationInterface
                 ->defaultValue(true)
                 ->end()
 
-                ->scalarNode('cookie_expiry_time')
-                ->defaultValue(365 * 10)
-                ->end()
-
                 ->scalarNode('template')
                 ->defaultValue('XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig')
                 ->end()
