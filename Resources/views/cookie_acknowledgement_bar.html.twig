@@ -1,32 +1,16 @@
 {% block xsolve_cookie_message %}
-    <div id="cookie-law-info-bar" style="width:100%; background: rgba(51, 221, 227, 0.75); position: fixed; bottom: 40px; left: 0;">
-        <p style="text-align:center; padding: 10px;">
+    <link type="text/css" rel="stylesheet" href="{{ asset('bundles/xsolvecookieacknowledgement/css/cookieBar.css') }}" media="all"/>
+    <div id="cookie-law-info-bar">
+        <p>
             {{ 'cookie.message'|trans({}, 'XsolveCookieAcknowledgementBundle') }}
-            <a href="#" id="cookie-law-close-button">{{ 'cookie.message.accept'|trans({}, 'XsolveCookieAcknowledgementBundle') }}</a>
+            <a href="#" id="js-cookie-law-close-button">
+                {{ 'cookie.message.accept'|trans({}, 'XsolveCookieAcknowledgementBundle') }}
+            </a>
         </p>
     </div>
 {% endblock %}
 
 {% block xsolve_cookie_message_js %}
-    <script type="text/javascript">
-        var cookieBar = document.getElementById('cookie-law-info-bar'),
-            button = document.getElementById('cookie-law-close-button');
-
-        function hideCookieBar() {
-            cookieBar.style.display = 'none';
-        }
-
-        function setCookieAccepted() {
-            expiry = new Date();
-            expiry.setTime(expiry.getTime()+({{ cookieExpiryTime }} * 1000 * 60 * 60 * 24));
-            document.cookie = "cookie_law_accepted=1; expires=" + expiry.toGMTString();
-        }
-
-        button.onclick = function() {
-            hideCookieBar();
-            setCookieAccepted();
-
-            return false;
-        }
+    <script type="text/javascript" src="{{ asset('bundles/xsolvecookieacknowledgement/js/cookieBar.js') }}">
     </script>
 {% endblock %}
