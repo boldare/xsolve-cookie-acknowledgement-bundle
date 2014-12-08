@@ -2,8 +2,6 @@
     var COOKIE_BAR = {
         itemName: 'xsolve.cookie-law-accepted',
         itemValue: 'accepted',
-        cookieBarDiv: document.getElementById('cookie-law-info-bar'),
-        cookieAcceptButton: document.getElementById('js-cookie-law-close-button'),
 
         showCookieBar: function () {
             this.cookieBarDiv.style.display = 'block';
@@ -30,6 +28,9 @@
 
         init: function () {
             var _this = this;
+
+            this.cookieBarDiv = document.getElementById('cookie-law-info-bar'),
+            this.cookieAcceptButton = document.getElementById('js-cookie-law-close-button');
 
             this.processCookieBar();
             this.cookieAcceptButton.onclick = function () {
