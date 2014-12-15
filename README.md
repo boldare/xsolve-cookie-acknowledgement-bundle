@@ -64,7 +64,6 @@ Configuration can be adjusted in app/config/config.yml
 
     xsolve_cookie_acknowledgement:
         response_injection: true # default true
-        cookie_expiry_time: 30 # expiry period in days (turning off cookie bar), by default 10 years
         template: custom_cookie_bar.html.twig # twig template name, default: XsolveCookieAcknowledgementBundle::cookie_acknowledgement_bar.html.twig
 
 ## Altering cookie bar texts
@@ -113,7 +112,7 @@ Also base template can be reused be Twig extension (two blocks are used: xsolve_
     {% block xsolve_cookie_message_js %}
         {{ parent() }}
         <script type="text/javascript">
-            document.getElementById('cookie-law-close-button').onclick = function () {
+            document.getElementById('js-cookie-law-close-button').onclick = function () {
                 alert('Got ya!');
             }
         </script>

@@ -1,0 +1,13 @@
+div.cookie-law-info-bar {
+    width:100%;
+    background: rgba(51, 221, 227, 0.75);
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    display: none;
+}
+
+div.cookie-law-info-bar > p {
+    text-align:center;
+    padding: 10px;
+}
