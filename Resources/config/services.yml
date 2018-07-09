@@ -4,5 +4,5 @@ parameters:
 
 services:
     xsolve.cookie_acknowledgement_bar.service:
-        class: %xsolve.cookie_acknowledgement_bar.service.class%
-        arguments:    ["@templating", %xsolve.cookie_acknowledgement_bar.template%]
+        class: "%xsolve.cookie_acknowledgement_bar.service.class%"
+        arguments:    ["@templating", "%xsolve.cookie_acknowledgement_bar.template%"]
